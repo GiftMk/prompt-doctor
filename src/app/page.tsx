@@ -1,26 +1,18 @@
 "use client";
 
+import { AuthInput } from "@/components/AuthInput";
 import { PromptFeedback } from "@/components/prompt-feedback";
-import { useIsClient } from "@/hooks/useIsClient";
-import { promptInputHeightAtom } from "@/state/atoms";
+import { isAuthenticatedAtom } from "@/state/atoms";
 import { useAtomValue } from "jotai";
 
 const Home = () => {
-  const isClient = useIsClient();
-  const promptInputHeight = useAtomValue(promptInputHeightAtom);
+	const isAuthenticated = useAtomValue(isAuthenticatedAtom);
 
-  return (
-    <div
-      style={{
-        height: `calc(100% - var(--nav-height) - ${
-          isClient ? promptInputHeight : 0
-        }px)`,
-      }}
-      className="mt-nav px-8 w-full"
-    >
-      <PromptFeedback />
-    </div>
-  );
+	if (isAuthenticated) {
+		return <PromptFeedback />;
+	}
+
+	return <AuthInput />;
 };
 
 export default Home;

@@ -8,6 +8,7 @@ import { promptGuidelines } from "@/lib/promptGuidelines";
 import { JotaiProvider } from "@/state/JotaiProvider";
 import { NavigationBar } from "@/components/NavigationBar";
 import { PromptInput } from "@/components/prompt-input";
+import { NeedsAuth } from "@/components/NeedsAuth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,28 +31,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full w-full" lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <JotaiProvider>
-            <SidebarProvider className="h-full">
-              <AppSidebar promptGuidelines={promptGuidelines} />
-              <main className="w-full flex-1 h-full">
-                <NavigationBar />
-                {children}
-                <PromptInput />
-              </main>
-            </SidebarProvider>
-          </JotaiProvider>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+			<html className="h-full w-full" lang="en" suppressHydrationWarning>
+				<body
+					className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full`}
+				>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<JotaiProvider>
+							<SidebarProvider className="h-full">
+								<AppSidebar promptGuidelines={promptGuidelines} />
+								<main className="w-full flex-1 h-full">
+									<NavigationBar />
+									{children}
+									<NeedsAuth>
+										<PromptInput />
+									</NeedsAuth>
+								</main>
+							</SidebarProvider>
+						</JotaiProvider>
+					</ThemeProvider>
+				</body>
+			</html>
+		);
 }

@@ -2,7 +2,7 @@
 
 import "dotenv/config";
 import { promptGuidelines } from "@/lib/promptGuidelines";
-import { Feedback, feedbackSchema } from "@/state/atoms";
+import { type Feedback, feedbackSchema } from "@/state/atoms";
 import { ChatOpenAI } from "@langchain/openai";
 
 const model = new ChatOpenAI({

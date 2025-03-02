@@ -1,6 +1,6 @@
 "use client";
 
-import { LoadingSpinner } from "@/app/loading";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Button } from "../ui/button";
 import { useIsClient } from "@/hooks/useIsClient";
 import { useIsMobile } from "@/hooks/useIsMobile";

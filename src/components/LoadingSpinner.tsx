@@ -1,4 +1,3 @@
-import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 export interface ISVGProps extends React.SVGProps<SVGSVGElement> {
@@ -30,17 +29,3 @@ export const LoadingSpinner = ({
 		</svg>
 	);
 };
-
-const LoadingOverlay = () => {
-	return (
-		<div className="p-8 flex flex-col gap-8 items-center justify-center w-full h-full">
-			<p className="text-3xl uppercase font-bold tracking-tighter">
-				Prompt Doctor
-			</p>
-			<LoadingSpinner />
-			<Logo />
-		</div>
-	);
-};
-
-export default LoadingOverlay;

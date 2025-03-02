@@ -25,3 +25,5 @@ export const loadingAtom = atom(false);
 export const sidebarWidthAtom = atom(0);
 
 export const promptInputHeightAtom = atom(0);
+
+export const isAuthenticatedAtom = atom(false);

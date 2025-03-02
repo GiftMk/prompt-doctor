@@ -6,7 +6,7 @@ import { useAtom, useSetAtom } from "jotai";
 import { feedbackAtom, loadingAtom, promptAtom } from "@/state/atoms";
 import { fetchFeedback } from "../actions/fetchFeedback";
 import { SubmitButton } from "./SubmitButton";
-import { PromptInputContainer } from "./PromptInputContainer";
+import { InputContainer } from "./InputContainer";
 
 export const PromptInput = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -43,18 +43,18 @@ export const PromptInput = () => {
   };
 
   return (
-    <PromptInputContainer>
-      <Textarea
-        onKeyDown={handleKeyDown}
-        placeholder="Enter prompt..."
-        ref={textareaRef}
-        value={prompt}
-        onChange={handleChange}
-        className="resize-none max-h-48 border-none shadow-none focus-visible:ring-0"
-      />
-      <div className="w-full flex justify-end">
-        <SubmitButton onClick={handleSubmit} disabled={loading} />
-      </div>
-    </PromptInputContainer>
-  );
+			<InputContainer>
+				<Textarea
+					onKeyDown={handleKeyDown}
+					placeholder="Enter prompt..."
+					ref={textareaRef}
+					value={prompt}
+					onChange={handleChange}
+					className="resize-none max-h-48 border-none shadow-none focus-visible:ring-0"
+				/>
+				<div className="w-full flex justify-end">
+					<SubmitButton onClick={handleSubmit} disabled={loading} />
+				</div>
+			</InputContainer>
+		);
 };
