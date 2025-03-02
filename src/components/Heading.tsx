@@ -11,28 +11,28 @@ export const Heading = ({ level, className, ...props }: HeadingProps) => {
 		case 1:
 			return (
 				<h1
-					className={cn('text-2xl font-bold tracking-tight', className)}
+					className={cn('font-bold text-2xl tracking-tight', className)}
 					{...props}
 				/>
 			)
 		case 2:
 			return (
 				<h2
-					className={cn('text-xl font-bold tracking-tight', className)}
+					className={cn('font-bold text-xl tracking-tight', className)}
 					{...props}
 				/>
 			)
 		case 3:
 			return (
 				<h3
-					className={cn('text-lg font-semibold tracking-tight', className)}
+					className={cn('font-semibold text-lg tracking-tight', className)}
 					{...props}
 				/>
 			)
 		case 4:
 			return (
 				<h4
-					className={cn('text-md font-semibold tracking-tight', className)}
+					className={cn('font-semibold text-md tracking-tight', className)}
 					{...props}
 				/>
 			)

@@ -15,10 +15,10 @@ export const NavigationBar = () => {
 		return (
 			<header
 				style={{ width: `calc(100% - ${sidebarWidth}px)` }}
-				className='z-10 h-nav fixed top-0 right-0 px-2 flex items-center gap-2 bg-background'
+				className='fixed top-0 right-0 z-10 flex h-nav items-center gap-2 bg-background px-2'
 			>
 				<SidebarTrigger />
-				<nav className='w-full justify-between items-center flex'>
+				<nav className='flex w-full items-center justify-between'>
 					<Logo />
 					<ThemeToggle />
 				</nav>{' '}

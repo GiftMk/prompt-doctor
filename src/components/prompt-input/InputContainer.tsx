@@ -19,7 +19,7 @@ export const InputContainer = ({ children }: React.PropsWithChildren) => {
 		<Card
 			ref={ref}
 			style={{ width: `calc(100% - ${isClient ? sidebarWidth : 0}px)` }}
-			className='p-4 space-y-4 bg-primary-foreground fixed bottom-0 right-0 rounded-l-none rounded-b-none border-l-0'
+			className='fixed right-0 bottom-0 space-y-4 rounded-b-none rounded-l-none border-l-0 bg-primary-foreground p-4'
 		>
 			{children}
 		</Card>

@@ -50,9 +50,9 @@ export const PromptInput = () => {
 				ref={textareaRef}
 				value={prompt}
 				onChange={handleChange}
-				className='resize-none max-h-48 border-none shadow-none focus-visible:ring-0'
+				className='max-h-48 resize-none border-none shadow-none focus-visible:ring-0'
 			/>
-			<div className='w-full flex justify-end'>
+			<div className='flex w-full justify-end'>
 				<SubmitButton onClick={handleSubmit} disabled={loading} />
 			</div>
 		</InputContainer>

@@ -33,7 +33,7 @@ export default function RootLayout({
 	return (
 		<html className='h-full w-full' lang='en' suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased h-full w-full`}
+				className={`${geistSans.variable} ${geistMono.variable} h-full w-full antialiased`}
 			>
 				<ThemeProvider
 					attribute='class'
@@ -44,7 +44,7 @@ export default function RootLayout({
 					<JotaiProvider>
 						<SidebarProvider className='h-full'>
 							<AppSidebar promptGuidelines={promptGuidelines} />
-							<main className='w-full flex-1 h-full'>
+							<main className='h-full w-full flex-1'>
 								<NavigationBar />
 								{children}
 								<NeedsAuth>

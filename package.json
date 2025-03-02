@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"tidy": "biome format --write . && biome lint --write ."
+		"tidy": "biome format --write . && biome lint --write .",
+		"tidy:unsafe": "biome format --write . && biome lint --write --unsafe ."
 	},
 	"dependencies": {
 		"@langchain/community": "^0.3.32",

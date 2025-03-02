@@ -24,7 +24,7 @@ export const SubmitButton = ({ disabled, onClick }: SubmitButtonProps) => {
 		<Button disabled={disabled} className='gap-4' onClick={onClick}>
 			{loading ? <LoadingSpinner /> : 'Go'}
 			{showHotkeyLabel && (
-				<span className='text-xs outline outline-2 rounded-md flex items-center p-1 gap-2'>
+				<span className='flex items-center gap-2 rounded-md p-1 text-xs outline outline-2'>
 					{isMac ? <CommandIcon /> : 'Ctrl'} + <CornerDownLeftIcon />
 				</span>
 			)}

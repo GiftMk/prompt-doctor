@@ -10,8 +10,8 @@ export const Logo = () => {
 	const loading = useAtomValue(loadingAtom)
 
 	return (
-		<div className='text-foreground flex gap-1 items-center'>
-			<Heading level={3} className='uppercase font-bold italic'>
+		<div className='flex items-center gap-1 text-foreground'>
+			<Heading level={3} className='font-bold uppercase italic'>
 				Prompt
 			</Heading>
 			<HeartPulseIcon
@@ -19,7 +19,7 @@ export const Logo = () => {
 					'animate-heartbeat': loading,
 				})}
 			/>
-			<Heading level={3} className='uppercase font-bold italic'>
+			<Heading level={3} className='font-bold uppercase italic'>
 				Doctor
 			</Heading>
 		</div>

@@ -11,7 +11,7 @@ export const PromptFeedback = () => {
 
 	return (
 		<FeedbackContainer>
-			<div className='flex flex-col md:flex-row w-full h-full gap-4'>
+			<div className='flex h-full w-full flex-col gap-4 md:flex-row'>
 				<FeedbackSection
 					loading={loading}
 					title='feedback'

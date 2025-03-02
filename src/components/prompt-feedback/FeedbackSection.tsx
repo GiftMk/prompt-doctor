@@ -19,9 +19,9 @@ export const FeedbackSection = ({
 	const hideCopy = feedback?.length === 0 || disableCopy
 
 	return (
-		<div className='w-full overflow-auto px-8 flex flex-col pb-4'>
-			<span className='flex items-center gap-2 sticky top-0 bg-background'>
-				<p className='text-xs font-medium text-foreground/70'>{title}</p>
+		<div className='flex w-full flex-col overflow-auto px-8 pb-4'>
+			<span className='sticky top-0 flex items-center gap-2 bg-background'>
+				<p className='font-medium text-foreground/70 text-xs'>{title}</p>
 				<CopyButton text={feedback} className={cn({ invisible: hideCopy })} />
 			</span>
 			<AnimatePresence>

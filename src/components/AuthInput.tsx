@@ -28,8 +28,8 @@ export const AuthInput = () => {
 	}
 
 	return (
-		<div className='w-full h-full flex items-center justify-center'>
-			<div className='flex flex-col gap-2 items-center'>
+		<div className='flex h-full w-full items-center justify-center'>
+			<div className='flex flex-col items-center gap-2'>
 				{invalid ? (
 					<Heading level={4} className='text-red-400'>
 						Invalid Password
