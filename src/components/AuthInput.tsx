@@ -1,38 +1,37 @@
-"use client";
+'use client'
 
-import { isAuthenticatedAtom } from "@/state/atoms";
-import { useSetAtom } from "jotai";
+import { isAuthenticatedAtom } from '@/state/atoms'
+import { useSetAtom } from 'jotai'
 import {
 	InputOTP,
 	InputOTPGroup,
 	InputOTPSeparator,
 	InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { useState } from "react";
-import { authenticateUser } from "@/components/actions/authenticateUser";
-import { Heading } from "./Heading";
-
-const PASSWORD_LENGTH = 6;
+} from '@/components/ui/input-otp'
+import { useState } from 'react'
+import { authenticateUser } from '@/components/actions/authenticateUser'
+import { Heading } from './Heading'
+import { PASSWORD_LENGTH } from '@/lib/constants'
 
 export const AuthInput = () => {
-	const [value, setValue] = useState("");
-	const [invalid, setInvalid] = useState(false);
-	const setIsAuthenticated = useSetAtom(isAuthenticatedAtom);
+	const [value, setValue] = useState('')
+	const [invalid, setInvalid] = useState(false)
+	const setIsAuthenticated = useSetAtom(isAuthenticatedAtom)
 
 	const handleChange = async (value: string) => {
-		setInvalid(false);
-		setValue(value);
+		setInvalid(false)
+		setValue(value)
 
-		const isAuthenticated = await authenticateUser(value);
-		setIsAuthenticated(isAuthenticated);
-		setInvalid(value.length === PASSWORD_LENGTH && !isAuthenticated);
-	};
+		const isAuthenticated = await authenticateUser(value)
+		setIsAuthenticated(isAuthenticated)
+		setInvalid(value.length === PASSWORD_LENGTH && !isAuthenticated)
+	}
 
 	return (
-		<div className="w-full h-full flex items-center justify-center">
-			<div className="flex flex-col gap-2 items-center">
+		<div className='w-full h-full flex items-center justify-center'>
+			<div className='flex flex-col gap-2 items-center'>
 				{invalid ? (
-					<Heading level={4} className="text-red-400">
+					<Heading level={4} className='text-red-400'>
 						Invalid Password
 					</Heading>
 				) : (
@@ -58,5 +57,5 @@ export const AuthInput = () => {
 				</InputOTP>
 			</div>
 		</div>
-	);
-};
+	)
+}

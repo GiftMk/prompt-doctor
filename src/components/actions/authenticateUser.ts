@@ -1,5 +1,7 @@
-"use server";
+'use server'
+
+import { env } from '@/lib/env'
 
 export const authenticateUser = async (password: string): Promise<boolean> => {
-	return password === process.env.PROMPT_DOCTOR_PASSWORD;
-};
+	return password === env.PROMPT_DOCTOR_PASSWORD
+}

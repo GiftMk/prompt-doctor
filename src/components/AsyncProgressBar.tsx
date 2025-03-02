@@ -1,10 +1,10 @@
-"use client";
-import { Progress } from "@/components/ui/progress";
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+'use client'
+import { Progress } from '@/components/ui/progress'
+import { useEffect, useState } from 'react'
+import { Button } from './ui/button'
 
 export const AsyncProgressBar = () => {
-	const [progress, setProgress] = useState(10);
+	const [progress, setProgress] = useState(10)
 
 	// useEffect(() => {
 	// 	const intervalId = setInterval(() => {
@@ -15,9 +15,9 @@ export const AsyncProgressBar = () => {
 	return (
 		<div>
 			<Progress value={progress} />
-			<Button onClick={() => setProgress((prev) => prev + 10)}>
+			<Button onClick={() => setProgress(prev => prev + 10)}>
 				Increment Progress
 			</Button>
 		</div>
-	);
-};
+	)
+}

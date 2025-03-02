@@ -10,10 +10,11 @@ Improve your LLM prompts based on [OpenAI's guidelines]("https://help.openai.com
 pnpm install
 ```
 
-- Create a `.env` file at the repository root and add your OpenAI api key
+- Create a `.env` file at the repository root and add your OpenAI api key and a six character long password
 
 ```
 OPENAI_API_KEY=<your api key>
+PROMPT_DOCTOR_PASSWORD=abc123
 ```
 
 - Then, run the development server
