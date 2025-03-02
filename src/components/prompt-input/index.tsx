@@ -37,7 +37,7 @@ export const PromptInput = () => {
 	}
 
 	const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-		if (e.key === 'Enter' && e.metaKey) {
+		if (e.code === 'Enter' && (e.metaKey || e.ctrlKey)) {
 			await handleSubmit()
 		}
 	}

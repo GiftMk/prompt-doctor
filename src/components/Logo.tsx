@@ -15,7 +15,7 @@ export const Logo = () => {
 				Prompt
 			</Heading>
 			<HeartPulseIcon
-				className={cn('text-pink-400', {
+				className={cn('fill-pink-100/50 text-pink-400', {
 					'animate-heartbeat': loading,
 				})}
 			/>
