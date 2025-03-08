@@ -8,7 +8,7 @@ import { promptGuidelines } from '@/lib/promptGuidelines'
 import { JotaiProvider } from '@/state/JotaiProvider'
 import { NavigationBar } from '@/components/NavigationBar'
 import { PromptInput } from '@/components/prompt-input'
-import { NeedsAuth } from '@/components/NeedsAuth'
+import { Toaster } from '@/components/ui/sonner'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -47,12 +47,11 @@ export default function RootLayout({
 							<main className='h-full w-full flex-1'>
 								<NavigationBar />
 								{children}
-								<NeedsAuth>
-									<PromptInput />
-								</NeedsAuth>
+								<PromptInput />
 							</main>
 						</SidebarProvider>
 					</JotaiProvider>
+					<Toaster />
 				</ThemeProvider>
 			</body>
 		</html>

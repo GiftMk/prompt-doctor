@@ -7,13 +7,19 @@ import { cn } from '@/lib/utils'
 
 type CopyButtonProps = {
 	text?: string
+	iconClassName?: string
 } & React.ComponentProps<'button'>
 
 type CopyStatus = 'success' | 'failure'
 
 const TIMEOUT = 750
 
-export const CopyButton = ({ text, className, ...props }: CopyButtonProps) => {
+export const CopyButton = ({
+	text,
+	className,
+	iconClassName,
+	...props
+}: CopyButtonProps) => {
 	const [status, setStatus] = useState<CopyStatus>()
 
 	const onClick = async () => {
@@ -40,12 +46,11 @@ export const CopyButton = ({ text, className, ...props }: CopyButtonProps) => {
 			disabled={!!status || !text}
 			variant={'ghost'}
 			onClick={onClick}
-			size={'icon'}
 			{...props}
 		>
-			{!status && <ClipboardIcon />}
-			{status === 'success' && <ClipboardCheckIcon />}
-			{status === 'failure' && <ClipboardXIcon />}
+			{!status && <ClipboardIcon className={iconClassName} />}
+			{status === 'success' && <ClipboardCheckIcon className={iconClassName} />}
+			{status === 'failure' && <ClipboardXIcon className={iconClassName} />}
 		</Button>
 	)
 }

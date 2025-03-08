@@ -13,7 +13,7 @@ export const FeedbackContainer = ({ children }: React.PropsWithChildren) => {
 					isClient ? promptInputHeight : 0
 				}px)`,
 			}}
-			className='mt-nav w-full'
+			className='mt-nav flex w-full items-center justify-center'
 		>
 			{children}
 		</div>

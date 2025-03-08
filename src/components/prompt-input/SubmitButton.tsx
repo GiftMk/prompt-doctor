@@ -9,19 +9,18 @@ import { useAtomValue } from 'jotai'
 import { CommandIcon, CornerDownLeftIcon } from 'lucide-react'
 
 type SubmitButtonProps = {
-	disabled?: boolean
 	onClick: () => void
+	loading: boolean
 }
 
-export const SubmitButton = ({ disabled, onClick }: SubmitButtonProps) => {
+export const SubmitButton = ({ onClick, loading }: SubmitButtonProps) => {
 	const isMobile = useIsMobile()
 	const isClient = useIsClient()
-	const loading = useAtomValue(loadingAtom)
 	const showHotkeyLabel = isClient && !isMobile
 	const isMac = navigator.userAgent.includes('Mac')
 
 	return (
-		<Button disabled={disabled} className='gap-4' onClick={onClick}>
+		<Button disabled={loading} className='gap-4' onClick={onClick}>
 			{loading ? <LoadingSpinner /> : 'Go'}
 			{showHotkeyLabel && (
 				<span className='flex items-center gap-2 rounded-md p-1 text-xs outline outline-2'>

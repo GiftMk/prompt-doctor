@@ -1,18 +1,11 @@
-"use server";
+import { promptGuidelines } from '@/lib/promptGuidelines'
+import { feedbackSchema } from '@/lib/schemas'
+import { openai } from '@ai-sdk/openai'
+import { streamObject } from 'ai'
 
-import "dotenv/config";
-import { promptGuidelines } from "@/lib/promptGuidelines";
-import { type Feedback, feedbackSchema } from "@/state/atoms";
-import { ChatOpenAI } from "@langchain/openai";
+export const maxDuration = 30
 
-const model = new ChatOpenAI({
-  model: "gpt-4o",
-  temperature: 0,
-});
-
-export const fetchFeedback = async (prompt: string): Promise<Feedback> => {
-  const structuredModel = model.withStructuredOutput(feedbackSchema);
-  const feedback = await structuredModel.invoke(`
+const makePrompt = (userPrompt: string) => `
   ### Task ###
   - Improve and give feedback on the following prompt which is going to be sent to an LLM
   so that it is as effective as possible and meets the prompt guidelines from  OpenAI.
@@ -29,10 +22,19 @@ export const fetchFeedback = async (prompt: string): Promise<Feedback> => {
   ---
 
   ### User Prompt ###
-  ${prompt}
+  ${userPrompt}
 
   ---
-  `);
+  `
 
-  return feedback;
-};
+export async function POST(req: Request) {
+	const userPrompt = await req.text()
+
+	const result = streamObject({
+		model: openai('gpt-4o'),
+		schema: feedbackSchema,
+		prompt: makePrompt(userPrompt),
+	})
+
+	return result.toTextStreamResponse()
+}
